@@ -25,7 +25,7 @@ class MyDrawer extends StatelessWidget {
             leading: Icon(Icons.email),
             title: Text("Email"),
             subtitle: Text("Developer"),
-            trailing: Icon(Icons.edit),
+            trailing: Icon(Icons.send),
           ),
         ],
       ),

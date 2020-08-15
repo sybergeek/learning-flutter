@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 
 class HomePage extends StatefulWidget {
+  static const String routeName = "/home";
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -40,6 +42,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("Awesome App"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
       ),
       body: data != null
           ? ListView.builder(

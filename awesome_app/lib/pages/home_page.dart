@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Constants.prefs.setBool("loggedIn", false);
               // Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, LoginPage.routeName)
+              Navigator.pushReplacementNamed(context, LoginPage.routeName);
             },
           )
         ],

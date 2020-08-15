@@ -1,4 +1,6 @@
 import 'package:awesome_app/drawer.dart';
+import 'package:awesome_app/pages/login_page.dart';
+import 'package:awesome_app/utils/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -46,7 +48,9 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.exit_to_app),
             onPressed: () {
-              Navigator.pop(context);
+              Constants.prefs.setBool("loggedIn", false);
+              // Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, LoginPage.routeName)
             },
           )
         ],

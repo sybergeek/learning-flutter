@@ -1,6 +1,6 @@
-# awesome_app
+# calcya
 
-A new Flutter project for getting started. **awesome_app** is the first ever Flutter App built by me with online tutorials. 
+A new Flutter project.
 
 ## Getting Started
 

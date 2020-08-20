@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'whatsup-home.dart';
+
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -11,6 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'WhatsUp',
+      theme: ThemeData(
+        primaryColor: Color(0xff075e54),
+        accentColor: Color(0xff25d366),
+      ),
+      home: WhatsUpHome(),
     );
   }
 }

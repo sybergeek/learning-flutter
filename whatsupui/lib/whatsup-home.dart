@@ -25,10 +25,11 @@ class _WhatsUpHomeState extends State<WhatsUpHome>
     return Scaffold(
       appBar: AppBar(
         title: Text("WhatsUp"),
-        elevation: 0.7,
+        elevation: 10.0,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
+          // labelPadding: EdgeInsets.symmetric(horizontal: 2.0),
           tabs: <Widget>[
             Tab(icon: Icon(Icons.camera_alt)),
             Tab(text: "CHATS"),
@@ -36,6 +37,16 @@ class _WhatsUpHomeState extends State<WhatsUpHome>
             Tab(text: "CALLS")
           ],
         ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Icon(Icons.search),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Icon(Icons.more_vert),
+          )
+        ],
       ),
       body: TabBarView(
         controller: _tabController,
@@ -48,7 +59,7 @@ class _WhatsUpHomeState extends State<WhatsUpHome>
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).accentColor,
-        child: Icon(Icons.message, color: Colors.white),
+        child: Icon(Icons.chat, color: Colors.white),
         onPressed: () => print("open chats"),
       ),
     );

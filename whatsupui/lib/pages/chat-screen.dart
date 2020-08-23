@@ -14,10 +14,11 @@ class _ChatScreenState extends State<ChatScreen> {
       itemBuilder: (context, i) => Column(
         children: <Widget>[
           Divider(
-            height: 10.0,
+            height: 1.0,
           ),
           ListTile(
             leading: CircleAvatar(
+              radius: 27.0,
               foregroundColor: Theme.of(context).primaryColor,
               backgroundColor: Colors.grey,
               backgroundImage: NetworkImage(dummyData[i].avatarUrl),

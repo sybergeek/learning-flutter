@@ -24,8 +24,8 @@ class _WhatsUpHomeState extends State<WhatsUpHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("WhatsUp"),
-        elevation: 10.0,
+        title: Text("WhatsApp"),
+        elevation: 7.0,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,

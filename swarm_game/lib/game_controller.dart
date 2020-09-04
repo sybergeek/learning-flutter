@@ -4,7 +4,9 @@ import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:swarm_game/components/highscore_text.dart';
 import 'package:swarm_game/components/score_text.dart';
+import 'package:swarm_game/components/start_text.dart';
 
 import 'package:swarm_game/enemy_spawner.dart';
 import 'package:swarm_game/game_state.dart';
@@ -24,6 +26,8 @@ class GameController extends Game {
   int score;
   ScoreText scoreText;
   GameState state;
+  HighscoreText highscoreText;
+  StartText startButton;
 
   GameController(this.storage) {
     initialize();
@@ -38,6 +42,8 @@ class GameController extends Game {
     enemySpawner = EnemySpawner(this);
     healthBar = HealthBar(this);
     score = 0;
+    highscoreText = HighscoreText(this);
+    startButton = StartText(this);
     scoreText = ScoreText(this);
     // spawnEnemy();
   }
@@ -50,8 +56,8 @@ class GameController extends Game {
     player.render(c);
 
     if (state == GameState.menu) {
-      // startButton.render(c);
-      // highscoreText.render(c);
+      startButton.render(c);
+      highscoreText.render(c);
     } else {
       enemies.forEach((Enemy enemy) => enemy.render(c));
       healthBar.render(c);
@@ -61,8 +67,8 @@ class GameController extends Game {
 
   void update(double t) {
     if (state == GameState.menu) {
-      // startButton.update(t);
-      // highscoreText.update(t);
+      startButton.update(t);
+      highscoreText.update(t);
     } else if (state == GameState.playing) {
       enemySpawner.update(t);
       enemies.forEach((Enemy enemy) => enemy.update(t));

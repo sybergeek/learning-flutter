@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:swarm_game/game_controller.dart';
 
-class HighscoreText {
+class StartText {
   final GameController gameController;
   TextPainter painter;
   Offset position;
 
-  HighscoreText(this.gameController) {
+  StartText(this.gameController) {
     painter = TextPainter(
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
@@ -20,19 +19,19 @@ class HighscoreText {
   }
 
   void update(double t) {
-    int highscore = gameController.storage.getInt('highscore') ?? 0;
+    // int highscore = gameController.storage.getInt('highscore') ?? 0;
 
     painter.text = TextSpan(
-      text: 'Highscore: $highscore',
+      text: 'Tap anywhere to start',
       style: TextStyle(
         color: Colors.black,
-        fontSize: 40.0,
+        fontSize: 30.0,
       ),
     );
     painter.layout();
     position = Offset(
       (gameController.screenSize.width / 2) - (painter.width / 2),
-      (gameController.screenSize.height * 0.2) - (painter.height / 2),
+      (gameController.screenSize.height * 0.7) - (painter.height / 2),
     );
   }
 }

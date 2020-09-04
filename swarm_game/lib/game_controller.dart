@@ -1,6 +1,7 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:swarm_game/components/health_bar.dart';
 
 import 'components/enemy.dart';
 import 'components/player.dart';
@@ -10,6 +11,7 @@ class GameController extends Game {
   double tileSize;
   Player player;
   Enemy enemy;
+  HealthBar healthBar;
 
   GameController() {
     initialize();
@@ -19,6 +21,7 @@ class GameController extends Game {
     resize(await Flame.util.initialDimensions());
     player = Player(this);
     enemy = Enemy(this, 200, 200);
+    healthBar = HealthBar(this);
   }
 
   void render(Canvas c) {
@@ -28,11 +31,14 @@ class GameController extends Game {
 
     player.render(c);
     enemy.render(c);
+
+    healthBar.render(c);
   }
 
   void update(double t) {
     enemy.update(t);
     player.update(t);
+    healthBar.update(t);
   }
 
   void resize(Size size) {
